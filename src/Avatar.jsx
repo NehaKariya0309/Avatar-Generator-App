@@ -133,13 +133,12 @@ const Avatar = () => {
 			 <label>Scale:</label>
              <input className='range' value={scale} type="range" min="0" max="100" step="1" onInput={(e)=>handleScale(e)}/>
             </div>
-			<div className="prop">
+			{/* <div className="prop">
 			 <label class="switch">
                 Flip:
             </label>
             <input className='flip' value={flip} type="checkbox" onChange={(e)=>handleFlip(e)}/>
-             {/* <span class="slider round"></span> */}
-			 </div>
+			 </div> */}
 			 <div className="prop">
             <label>Rotate:</label>
              <input className='range' value={rotate} type="range" min="0" max="360" step="1"  onChange={(e)=>handleRotate(e)}/>
