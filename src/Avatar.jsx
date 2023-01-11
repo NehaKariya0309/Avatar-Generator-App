@@ -9,9 +9,9 @@ const Avatar = () => {
 	const [sprite, setSprite] = useState("bottts");
 	const [seed, setSeed] = useState(1000);
 	const [radius, setRadius] = useState(0);
-	const [size, setSize] = useState();
+	// const [size, setSize] = useState();
 	const [scale, setScale] = useState(100);
-	const [flip, setFlip] = useState(false);
+	// const [flip, setFlip] = useState(false);
 	const [rotate, setRotate] = useState(0);
 	const [translateX,setTranslateX] = useState(0);
 	const [translateY,setTranslateY] = useState(0);
@@ -31,15 +31,15 @@ const Avatar = () => {
 		setRadius(e.target.value);
 	}
 
-    function handleSize(e) {
-		setSize(e.target.value);
-	}
+    // function handleSize(e) {
+	// 	setSize(e.target.value);
+	// }
     function handleScale(e) {
 		setScale(e.target.value);
 	}
-    function handleFlip(e) {
-		setFlip(e.target.checked);
-	}
+    // function handleFlip(e) {
+	// 	setFlip(e.target.checked);
+	// }
     function handleRotate(e) {
 		setRotate(e.target.value);
 	}
@@ -65,7 +65,7 @@ const Avatar = () => {
 	function downloadImage() {
 		Axios({
 			method: "get",
-			url: `https://avatars.dicebear.com/api/${sprite}/${seed}.svg?b=%2361a6b8&r=${radius}&scale=${scale}&rotate=${rotate}&translateX=${translateX}&translateY=${translateY}&flip=${flip}`,
+			url: `https://avatars.dicebear.com/api/${sprite}/${seed}.svg?b=%2361a6b8&r=${radius}&scale=${scale}&rotate=${rotate}&translateX=${translateX}&translateY=${translateY}`,
 			responseType: "arraybuffer"
 		})
 		.then((response) => {
@@ -109,15 +109,10 @@ const Avatar = () => {
 				<div className="total">
 				<div className="avatar">
 					<figure><img src=
-{`https://avatars.dicebear.com/api/${sprite}/${seed}.svg?b=%2361a6b8&r=${radius}&scale=${scale}&rotate=${rotate}&translateX=${translateX}&translateY=${translateY}&flip=${flip}`} alt="Sprite" />
+{`https://avatars.dicebear.com/api/${sprite}/${seed}.svg?b=%2361a6b8&r=${radius}&scale=${scale}&rotate=${rotate}&translateX=${translateX}&translateY=${translateY}`} alt="Sprite" />
 				</figure>
 				</div>
-				{/* <div className="generate">
-					<button id="gen" onClick={() => {
-						handleGenerate() }}>Next</button>
-					<button id="down" onClick={() => {
-						downloadImage() }}>Download</button>
-				</div> */}
+				
    <div className="custom">            
 		<div className="prop">
 				<label>Seed:</label>
@@ -127,18 +122,12 @@ const Avatar = () => {
              <label>Radius:</label>
              <input className='range' value={radius} type="range" min="0" max="50" step="1"  onChange={(e)=>handleRadius(e)}/>
              </div>
-			 {/* <label>Size:</label>
-             <input className='scale' value={size} type="range" min="1" onChange={()=>handleSize()}/> */}
+			
              <div className="prop">
 			 <label>Scale:</label>
              <input className='range' value={scale} type="range" min="0" max="100" step="1" onInput={(e)=>handleScale(e)}/>
             </div>
-			{/* <div className="prop">
-			 <label class="switch">
-                Flip:
-            </label>
-            <input className='flip' value={flip} type="checkbox" onChange={(e)=>handleFlip(e)}/>
-			 </div> */}
+			
 			 <div className="prop">
             <label>Rotate:</label>
              <input className='range' value={rotate} type="range" min="0" max="360" step="1"  onChange={(e)=>handleRotate(e)}/>
